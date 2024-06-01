@@ -2,7 +2,7 @@
 
 // Declare variables - random number, score, high score
 let secretNumber = Math.trunc(Math.random() * 5) + 1;
-let score = 20;
+let score = 5;
 let highScore = 0;
 
 // A to-do list:
@@ -26,6 +26,7 @@ const displayMessage = function (message) {
 // Add event-listener to check
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
+  const number = Number(document.querySelector('.score').value);
 
   // Well this doesn't work ⬇️
   // let scoreText = document.querySelector('.score').textContent;
@@ -36,7 +37,7 @@ document.querySelector('.check').addEventListener('click', function () {
   }
 
   // If correct input:
-  else if (guess === secretNumber) {
+  if (guess === secretNumber) {
     displayMessage('🎉 You Win!');
 
     // Reveal
@@ -47,13 +48,21 @@ document.querySelector('.check').addEventListener('click', function () {
   }
 
   // If incorrect input:
-  if (guess > secretNumber) {
-    displayMessage('⬆️ Too high');
-    score--;
-    document.querySelector('.score').textContent = score;
-  } else if (guess < secretNumber) {
-    displayMessage('⬇️ Too low');
-    score--;
-    document.querySelector('.score').textContent = score;
-  }
+
+  //   if (guess > secretNumber) {
+  //     displayMessage('⬆️ Too high');
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //   } else if (guess < secretNumber) {
+  //     displayMessage('⬇️ Too low');
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //   }
+
+  //   // Lose
+  //   if (guess !== secretNumber && score === 0) {
+  //     displayMessage('💀 You lose');
+  //     document.querySelector('.score').textContent = '0';
+  //     document.querySelector('body').style.backgroundColor = '#BB2C25';
+  //   }
 });
